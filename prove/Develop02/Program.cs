@@ -111,42 +111,40 @@ class Program
             Console.Write("Select an option: ");
             string choice = Console.ReadLine();
 
-            switch (choice)
+            if (choice == "1")
             {
-                case "1":
-                    string prompt = promptGenerator.GetRandomPrompt();
-                    Console.WriteLine(prompt);
+                string prompt = promptGenerator.GetRandomPrompt();
+                Console.WriteLine(prompt);
 
-                    Console.Write("Enter your response: ");
-                    string response = Console.ReadLine();
+                Console.Write("Enter your response: ");
+                string response = Console.ReadLine();
 
-                    Entry entry = new Entry(prompt, response);
-                    journal.AddEntry(entry);
-                    break;
-
-                case "2":
-                    journal.DisplayAll();
-                    break;
-
-                case "3":
-                    Console.Write("Enter filename to save: ");
-                    string saveFilename = Console.ReadLine();
-                    journal.SaveToFile(saveFilename);
-                    break;
-
-                case "4":
-                    Console.Write("Enter filename to load: ");
-                    string loadFilename = Console.ReadLine();
-                    journal.LoadFromFile(loadFilename);
-                    break;
-
-                case "5":
-                    running = false;
-                    break;
-
-                default:
-                    Console.WriteLine("Invalid option. Please try again.");
-                    break;
+                Entry entry = new Entry(prompt, response);
+                journal.AddEntry(entry);
+            }
+            else if (choice == "2")
+            {
+                journal.DisplayAll();
+            }
+            else if (choice == "3")
+            {
+                Console.Write("Enter filename to save: ");
+                string saveFilename = Console.ReadLine();
+                journal.SaveToFile(saveFilename);
+            }
+            else if (choice == "4")
+            {
+                Console.Write("Enter filename to load: ");
+                string loadFilename = Console.ReadLine();
+                journal.LoadFromFile(loadFilename);
+            }
+            else if (choice == "5")
+            {
+                running = false;
+            }
+            else
+            {
+                Console.WriteLine("Invalid option. Please try again.");
             }
         }
     }
