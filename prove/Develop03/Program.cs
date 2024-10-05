@@ -109,32 +109,40 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Scripture reference example: single verse
-        Reference reference = new Reference("John", 3, 16);
-        // Scripture reference example: verse range
-        // Reference reference = new Reference("Proverbs", 3, 5, 6);
-
-        Scripture scripture = new Scripture(reference, "For God so loved the world that He gave His only begotten Son");
-
-        while (true)
+        // List of 5 scriptures
+        List<Scripture> scriptures = new List<Scripture>
         {
-            scripture.Display();
-            Console.WriteLine("\nPress Enter to hide more words or type 'quit' to exit.");
-            string input = Console.ReadLine();
+            new Scripture(new Reference("John", 3, 16), "For God so loved the world that He gave His only begotten Son"),
+            new Scripture(new Reference("Proverbs", 3, 5, 6), "Trust in the Lord with all your heart and lean not on your own understanding"),
+            new Scripture(new Reference("Philippians", 4, 13), "I can do all things through Christ who strengthens me"),
+        };
 
-            if (input.ToLower() == "quit")
-            {
-                break;
-            }
-
-            scripture.HideWords(2);  // Hide 2 words each time
-
-            if (scripture.AllWordsHidden())
+        // Loop through each scripture
+        foreach (var scripture in scriptures)
+        {
+            while (true)
             {
                 scripture.Display();
-                Console.WriteLine("\nAll words are hidden. Program will exit.");
-                break;
+                Console.WriteLine("\nPress Enter to hide more words or type 'quit' to move to the next scripture.");
+                string input = Console.ReadLine();
+
+                if (input.ToLower() == "quit")
+                {
+                    break;
+                }
+
+                scripture.HideWords(2);  // Hide 2 words each time
+
+                if (scripture.AllWordsHidden())
+                {
+                    scripture.Display();
+                    Console.WriteLine("\nAll words are hidden. Moving to the next scripture.");
+                    break;
+                }
             }
         }
+
+        Console.WriteLine("All scriptures have been processed.");
     }
 }
+
