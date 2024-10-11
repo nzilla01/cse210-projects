@@ -122,10 +122,10 @@ class Program
     static void Main(string[] args)
     {
         Address address1 = new Address("123 Maple St", "Los Angeles", "CA", "USA");
-        Address address2 = new Address("456 Elm St", "Toronto", "Ontario", "Canada");
+        Address address2 = new Address("119 Edibe  St", "calabar",  "lagos", "Nigeria");
 
         Customer customer1 = new Customer("John Doe", address1);
-        Customer customer2 = new Customer("Jane Smith", address2);
+        Customer customer2 = new Customer("Okon Joesph", address2);
 
         Product product1 = new Product("Laptop", "A123", 999.99, 1);
         Product product2 = new Product("Mouse", "B456", 49.99, 2);
