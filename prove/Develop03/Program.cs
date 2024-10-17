@@ -110,6 +110,8 @@ class Program
     static void Main(string[] args)
     {
       
+
+      
         List<Scripture> scriptures = new List<Scripture>
         {
             new Scripture(new Reference("John", 3, 16), "For God so loved the world that He gave His only begotten Son"),
